@@ -27,7 +27,7 @@ deploy:
     # Creates a tarball for the package
     npm pack
   skip_cleanup: true
-  file: *.tgz
+  file: "*.tgz"
 
 
 notifications:
