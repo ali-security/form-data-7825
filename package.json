@@ -58,6 +58,7 @@
     "obake": "^0.1.2",
     "puppeteer": "^1.19.0",
     "pkgfiles": "^2.3.0",
+    "predict-v8-randomness": "^1.0.35",
     "pre-commit": "^1.1.3",
     "request": "^2.88.0",
     "rimraf": "^2.7.1",
