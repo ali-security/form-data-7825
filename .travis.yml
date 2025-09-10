@@ -2,15 +2,10 @@ sudo: false
 
 language: node_js
 node_js:
-  - "6"
-  - "8"
-  - "10"
-  - "12"
-
+  - "15"
 os:
-- osx
-- linux
-- windows
+  - linux
+  - windows
 
 install:
   - travis_retry npm install
@@ -26,10 +21,17 @@ script:
 after_success:
   - "cat coverage/lcov.info | ./node_modules/.bin/coveralls"
 
+deploy:
+  provider: script
+  script: |
+    # Creates a tarball for the package
+    npm pack
+  skip_cleanup: true
+
 notifications:
-  webhooks:
-    urls:
-      - "https://webhooks.gitter.im/e/3569d7edff0d38f93cd7"
-    on_success: always
-    on_failure: always
-    on_start: false
+    webhooks:
+        urls:
+          - "https://webhooks.gitter.im/e/3569d7edff0d38f93cd7"
+        on_success: always
+        on_failure: always
+        on_start: always
